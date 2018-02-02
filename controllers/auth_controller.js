@@ -55,7 +55,7 @@ function TAPE(req,res) {
         profiles.push(redacted);
       }
   
-      res.render("list", {profiles:profiles, profileImage:req.user.image, id: req.user.id});
+      res.render("list", {profiles:profiles, profileImage:req.user.image, id: req.user.id, displayName: req.user.displayName});
     });
 
   
