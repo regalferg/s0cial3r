@@ -55,7 +55,7 @@ $(document).ready(function() {
     }
     var newPost = {
       channel: $("#linky").text(), //channel selection name
-      user: $("#username-display").text(),
+      user: $("#username-display-dashboard").text(),
       message: $("#post-input").val().trim() //msgInput.val().trim()
     }
     postFeed(newPost);
