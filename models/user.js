@@ -43,6 +43,7 @@ module.exports = function(sequelize, Sequelize) {
     },
     image: {
       type: Sequelize.STRING,
+      allowNull:false,
       validate: {
         isUrl: true
       }

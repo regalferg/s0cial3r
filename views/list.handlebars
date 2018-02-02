@@ -17,7 +17,7 @@
                 <a href="/dashboard" id="profile-logo">0</a>
             <span id="username-display-dashboard">{{displayName}}</span>
             <ul id="nav-dashboard" class="right hide-on-small-only chat-nav-links">
-                 <li><a href="/profilelist" class="" id="main-chat-link">PROFILE LIST/a></li>
+                 <li><a href="/profilelist" class="{{class1}}" id="main-chat-link">PROFILE LIST</a></li>
                 <li><a href="/dashboard/general" class="{{class1}}" id="main-chat-link">MAIN CHAT</a></li>
                 <li><a href="/dashboard/gaming_chat" class="{{class2}}" id="gaming-chat-link">GAMING CHAT</a></li>
                 <li><a href="/dashboard/tv_chat" class="{{class3}}" id="tv-chat-link">TV CHAT</a></li>
@@ -34,29 +34,29 @@
                 <li><a href="#" class="nav-links" id="edit-profile-link">EDIT PROFILE</a></li>
             </ul>
         </nav>
+           
+
+    
         <div class="row" id="search-bar-div-profile">
-            <div class="input-field col m6 offset-m6 l6 offset-l3" id="post-bar-col">
-                <input placeholder="Say Something" name="post" type="text" id="post-input"/>
-                <input class="btn" type="submit" value="POST" id="post-button"/>
+            <div class="input-field col l6 offset-l3 xl6 offset-xl3" id="post-bar-col">
+
             </div>
-            <div class="col m3" id="logout-button-col">
                 <a href="/logout" class="waves-effect waves-light btn" id="logout-button"><i class="material-icons left">cloud_off</i>Logout</a>
-                <a href="/logout" class="waves-effect waves-light btn" id="logout-button-mobile">Logout</a>
             </div>
         </div>
         <div class="row" id="feed-row">;
         <div class="col m6 offset-m3" id="feed">
 
-        {{#each feed}}
+        {{#each profiles}}
          <div class="card-panel" id="post">
                      <div class="card-content">
-                        <a href="#" id="postername">{{username}}</a><span id="says"> says:</span>
+                        <a href="#" id="postername">{{displayName}}</a><span id="says"> says:</span>
                         <br>
                         <br>
+                        <img src="{{image}}" id="friend-img" alt="">
                         <span id="post-body">{{message}}</span>
-                        <a id="hyp0r"></a>
                         <br><br>
-                        <a href="#" id="reply">REPLY</a>
+                        <a href="/profile/{{id}}" id="reply">Profile</a>
                     </div>
                 </div>
         {{/each}}
@@ -66,22 +66,11 @@
 
             <div id ="linky" style="display:none;">{{chan}}</div>
         <div class="row" id="profile-page-content">
-            <div class="col m6 l3" id="discord-app-col">
+            <div class="col m3" id="discord-app-col">
                 <iframe src="https://discordapp.com/widget?id=406842588239495168&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" id="discord-widget"></iframe>
             </div>
-            <div class="col m6 l6" id="profile-feed-col">
+            <div class="col m6" id="profile-feed-col">
 
             </div>
-            <div class="col m6 l3" id="friends-col">
-                <div class="card" id="friends-card">
-                    <div class="card-content" id="friends-content">
-                        <span class="card-title" id="friends-title">You have <a href="#" id="friends-count"></a> friends</span>
-                        <div id="frendo">
-                  
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
+
     </div>

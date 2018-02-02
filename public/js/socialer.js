@@ -1,150 +1,138 @@
 
 $(document).ready(function() {
+  // setTimeout(function() {
+  //   location.reload();
+  // }, 5000);
 
   console.log("I AM LINKED");
-//########################CHARLES Fn' rocks###################################
-var feeder;
-var generalChannel ={
-url: "https://discordapp.com/api/webhooks/407562838324936719/WlmvjQV11V_JhMK5wQhbibIWcw6EDjbwVehzCc-UREmpJnQZwzy8iLELjOsouTNDDrx3",
-name: "general"
-} ;
+  //########################CHARLES Fn' rocks###################################
+  var feeder;
+  //Objects for Posts to db and app
+  var generalChannel = {
+    url: "https://discordapp.com/api/webhooks/407562838324936719/WlmvjQV11V_JhMK5wQhbibIWcw6EDjbwVehzCc-UREmpJnQZwzy8iLELjOsouTNDDrx3",
+    name: "general"
+  };
 
-var gamingChannel = {
-  url:"https://discordapp.com/api/webhooks/408282323222790146/JuT5qAW9607mvfqwyiVBauObKG7Mq6_3wH3zYZPmuPsepr0vnnMQmbkFWrdsYnqLWxj2",
-  name: "gaming"
-};
-var tvChannel ={
-  url:"https://discordapp.com/api/webhooks/408277081642893332/Q7EwsWNZJgsdFwXIvvqM57d0pLPQwIOx_tcbogpq3er5hJRCDVs6ZT7d3xNwpzkeFCmR",
-  name: "tv"
-};
-var sportsChannel  = {
-    url:"https://discordapp.com/api/webhooks/408290833171742720/ePL88vKgyqiGkgDNWcQwBPGHOpEFFoJmpfr1RRR88sTZhRGkfJ7QGrUUDeEEEW3NYCrZ",
+  var gamingChannel = {
+    url: "https://discordapp.com/api/webhooks/408282323222790146/JuT5qAW9607mvfqwyiVBauObKG7Mq6_3wH3zYZPmuPsepr0vnnMQmbkFWrdsYnqLWxj2",
+    name: "gaming"
+  };
+  var tvChannel = {
+    url: "https://discordapp.com/api/webhooks/408277081642893332/Q7EwsWNZJgsdFwXIvvqM57d0pLPQwIOx_tcbogpq3er5hJRCDVs6ZT7d3xNwpzkeFCmR",
+    name: "tv"
+  };
+  var sportsChannel = {
+    url: "https://discordapp.com/api/webhooks/408290833171742720/ePL88vKgyqiGkgDNWcQwBPGHOpEFFoJmpfr1RRR88sTZhRGkfJ7QGrUUDeEEEW3NYCrZ",
     name: "sports"
   };
-var movieChannel ={
-  url: "https://discordapp.com/api/webhooks/408334142338629632/J-uIxfGDMXSF8U9ZCBMjJ4HQ6Dx7Lkv5BQMSd0ysIaKZlj4HZtHSVpkCsdfF53wN7-An",
-  name: "movies"
-};
+  var movieChannel = {
+    url: "https://discordapp.com/api/webhooks/408334142338629632/J-uIxfGDMXSF8U9ZCBMjJ4HQ6Dx7Lkv5BQMSd0ysIaKZlj4HZtHSVpkCsdfF53wN7-An",
+    name: "movies"
+  };
 
 
 
 
+  //Main event handler for post to database and discord
+  function feedSubmit(event) {
+    var links;
+    console.log($("#linky").text());
+    if ($("#linky").text() === "gaming_chat") {
+      links = gamingChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "tv_chat") {
+      links = tvChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "general") {
+      links = generalChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "movie_chat") {
+      links = movieChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "super-bowl-xxx_giggity") {
+      links = sportsChannel.url;
 
-function feedSubmit(event){
-  var links;
-  console.log($("#linky").text());
-  if($("#linky").text() === "gaming_chat"){
-     links = gamingChannel.url;
-     console.log(links);
-  }else if($("#linky").text() === "tv_chat"){
-    links = tvChannel.url;
-    console.log(links);
- }else if($("#linky").text() === "general"){
-  links = generalChannel.url;
-  console.log(links);
-}else if($("#linky").text() === "movie_chat"){
-  links = movieChannel.url;
-  console.log(links);
-}else if($("#linky").text() === "super-bowl-xxx_giggity"){
-  links = sportsChannel.url;
-  
-}
-    var newPost ={
-        channel: $("#linky").text(),//channel selection name
-        user: $("#username-display").text(),
-        message: $("#post-input").val().trim()  //msgInput.val().trim()
+    }
+    var newPost = {
+      channel: $("#linky").text(), //channel selection name
+      user: $("#username-display").text(),
+      message: $("#post-input").val().trim() //msgInput.val().trim()
     }
     postFeed(newPost);
-}
-function postFeed(data){
+  }
 
+
+  //Post cont...
+  function postFeed(data) {
 
 
     $.ajax({
-        method:"POST",
-        url: "/api/feed",
-        data:data
+      method: "POST",
+      url: "/api/feed",
+      data: data
 
     }).then(console.log(data));
 
     var links;
     console.log($("#linky").text());
-    if($("#linky").text() === "gaming_chat"){
-       links = gamingChannel.url;
-       console.log(links);
-    }else if($("#linky").text() === "tv_chat"){
+    if ($("#linky").text() === "gaming_chat") {
+      links = gamingChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "tv_chat") {
       links = tvChannel.url;
       console.log(links);
-   }else if($("#linky").text() === "general"){
-    links = generalChannel.url;
-    console.log(links);
-  }else if($("#linky").text() === "movie_chat"){
-    links = movieChannel.url;
-    console.log(links);
-  }else if($("#linky").text() === "super-bowl-xxx_giggity"){
-    links = sportsChannel.url;
-    
-  }
-    
-    var newerData ={
-        content: data.message,
-        username:data.user
+    } else if ($("#linky").text() === "general") {
+      links = generalChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "movie_chat") {
+      links = movieChannel.url;
+      console.log(links);
+    } else if ($("#linky").text() === "super-bowl-xxx_giggity") {
+      links = sportsChannel.url;
+
+    }
+
+    var newerData = {
+      content: data.message,
+      username: data.user
     };
 
     var newData = JSON.stringify(newerData);
-    console.log(newData + "Test"); 
+    console.log(newData + "Test");
     $.ajax({
-        type: "POST",
-        url:links,//channel selection
-        data: newData,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function(msg) {
+      type: "POST",
+      url: links, //channel selection
+      data: newData,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (msg) {
         console.log('In Ajax');
-        }
+      }
     });
-}
+  }
 
 
 
-
-function initializeRows() {
-    
-    
-    var postsToAdd = [];
-    for (var i = 0; i < feeder.length; i++) {
-      // console.log(feeder[i].message)
-    
-}
-}
-
-
-
-
-
-//This is functional, posts to db and discord
-  $("#post-button").click(function(event){
-    event.preventDefault();
+  //This is functional, posts to db and discord
+  $("#post-button").click(function (event) {
+    // event.preventDefault();
     feedSubmit();
     $("#post-input").val('');
   });
 
-// getFeed();
 
-
-
-  function getFeed(){
-    $.get("/profile/" + sportsChannel.name, function(data){
-  
-        
-      
-            
-            }).done(function(data){
-              console.log("Done");
-
-});
+  // Convert to hyperlink
+  function convert(){
+    if ($("#post-body").text().indexOf("http") > -1) {
+      $("#hyp0r").attr("href",$("#post-body").html());
+      var val = $("#hyp0r").html("Click Here To Join Discord Chat");
+    }
   }
+  convert();
 
+
+
+//###############ALL THE WAY TO HERE##############################
 
 
 
@@ -517,7 +505,7 @@ function initializeRows() {
         var sportsInterest = "Sports";
 
         if(isGamingChecked) {
-          gamingCategoryTitle.css("color", "#71E5D9");
+          gamingCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < interests.length; i++) {
             if(interests.indexOf(gamingInterest) === -1) {
               interests.push(gamingInterest);
@@ -535,7 +523,7 @@ function initializeRows() {
         }
 
         if(isTvChecked) {
-          tvCategoryTitle.css("color", "#71E5D9");
+          tvCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < interests.length; i++) {
             if(interests.indexOf(tvInterest) === -1) {
               interests.push(tvInterest);
@@ -553,7 +541,7 @@ function initializeRows() {
         }
 
         if(isMovieChecked) {
-          movieCategoryTitle.css("color", "#71E5D9");
+          movieCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < interests.length; i++) {
             if(interests.indexOf(movieInterest) === -1) {
               interests.push(movieInterest);
@@ -571,7 +559,7 @@ function initializeRows() {
         }
 
         if(isSportsChecked) {
-          sportsCategoryTitle.css("color", "#71E5D9");
+          sportsCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < interests.length; i++) {
             if(interests.indexOf(sportsInterest) === -1) {
               interests.push(sportsInterest);
@@ -666,7 +654,15 @@ function initializeRows() {
     resetMessageRow.attr("id", "reset-message-row");
 
     var forgotEmailInputUpper = forgotEmailInput.val().toUpperCase();
-
+    var email = forgotEmailInputUpper;
+    $.ajax("/forgot", {
+      type: "POST",
+      email: email
+    }).then(function(email) {
+      console.log("New User Created");
+      location.reload();
+    });
+ 
     var resetInstructions1 = $("<h6>");
     resetInstructions1.addClass("reset-instructions");
     resetInstructions1.html('AN EMAIL HAS BEEN SENT TO: <span id="forgot-email-upper">' + forgotEmailInputUpper + "</span>.");
@@ -718,24 +714,16 @@ function initializeRows() {
     });
   })
 
-//#########MORE CHARLES###################
 
 
 
-
-
-
-
-
-
-
-//############END MORE CHARLES#############################
-
-
-  $(".chat-nav-links li").on("click", function() {
+  /*$(".chat-nav-links li").on("click", function() {
     $(".highlighted").removeClass("highlighted");
     $(this).addClass("highlighted");
   })
+
+  var chatSelected = $("#linky").val();
+  console.log("chat: " + chatSelected);*/
 
   $("#main-chat-link").on("click", function() {
     $("#feed-row").show();
@@ -777,13 +765,15 @@ function initializeRows() {
   })
 
   $("#edit-profile-link").on("click", function() {
+    $(".highlighted").removeClass("highlighted");
+    $(this).addClass("highlighted");
     $("#feed-row").hide();
     $("#discord-widget").hide();
     $("#friends-card").hide();
     $("#search-bar-div-profile").hide();
 
     var updateProfileCardCol = $("<div>");
-    updateProfileCardCol.addClass("col s8 offset-s2");
+    updateProfileCardCol.addClass("col m10 offset-m1 l10 offset-l1 xl8 offset-xl2");
 
     var updateProfileCard = $("<div>");
     updateProfileCard.addClass("card");
@@ -827,19 +817,19 @@ function initializeRows() {
     var updateInputFieldTwo = $("<div>");
     updateInputFieldTwo.addClass("input-field col s12 m6");
 
-    var updateUserEmailInput = $("<input>");
-    updateUserEmailInput.addClass("validate");
-    updateUserEmailInput.attr("id", "updateUserEmail");
-    updateUserEmailInput.attr("name", "updateUserEmail");
-    updateUserEmailInput.attr("type", "email");
+    // var updateUserEmailInput = $("<input>");
+    // updateUserEmailInput.addClass("validate");
+    // updateUserEmailInput.attr("id", "updateUserEmail");
+    // updateUserEmailInput.attr("name", "updateUserEmail");
+    // updateUserEmailInput.attr("type", "email");
 
-    var updateUserEmailLabel = $("<label>");
-    updateUserEmailLabel.attr("for", "updateUserEmail");
-    updateUserEmailLabel.attr("id", "updateUserEmailLabel");
-    updateUserEmailLabel.text("Email");
+    // var updateUserEmailLabel = $("<label>");
+    // updateUserEmailLabel.attr("for", "updateUserEmail");
+    // updateUserEmailLabel.attr("id", "updateUserEmailLabel");
+    // updateUserEmailLabel.text("Email");
 
     updateInputFieldOne.append(updateDisplayNameInput, updateDisplayNameLabel);
-    updateInputFieldTwo.append(updateUserEmailInput, updateUserEmailLabel);
+    // updateInputFieldTwo.append(updateUserEmailInput, updateUserEmailLabel);
     updateRowOne.append(updateInputFieldOne, updateInputFieldTwo);
 
     var updateRowTwo = $('<div class="row">');
@@ -1000,7 +990,7 @@ function initializeRows() {
     updateMainRow.append(updateFormTitle, updateForm);
     updateCardContent.append(updateMainRow);
     updateProfileCard.append(updateCardContent);
-    updateProfileCardCol.append(updateProfileCard)
+    updateProfileCardCol.append(updateProfileCard);
     $("#profile-page-content").append(updateProfileCardCol);
 
     $(function() {
@@ -1016,7 +1006,7 @@ function initializeRows() {
         var sportsInterest = "Sports";
 
         if(isGamingChecked) {
-          updateGamingCategoryTitle.css("color", "#71E5D9");
+          updateGamingCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < updateInterests.length; i++) {
             if(updateInterests.indexOf(gamingInterest) === -1) {
               updateInterests.push(gamingInterest);
@@ -1034,7 +1024,7 @@ function initializeRows() {
         }
 
         if(isTvChecked) {
-          updateTvCategoryTitle.css("color", "#71E5D9");
+          updateTvCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < updateInterests.length; i++) {
             if(updateInterests.indexOf(tvInterest) === -1) {
               updateInterests.push(tvInterest);
@@ -1052,7 +1042,7 @@ function initializeRows() {
         }
 
         if(isMovieChecked) {
-          updateMovieCategoryTitle.css("color", "#71E5D9");
+          updateMovieCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < updateInterests.length; i++) {
             if(updateInterests.indexOf(movieInterest) === -1) {
               updateInterests.push(movieInterest);
@@ -1070,7 +1060,7 @@ function initializeRows() {
         }
 
         if(isSportsChecked) {
-          updateSportsCategoryTitle.css("color", "#71E5D9");
+          updateSportsCategoryTitle.css("color", "#7289da");
           for (var i = -1; i < updateInterests.length; i++) {
             if(updateInterests.indexOf(sportsInterest) === -1) {
               updateInterests.push(sportsInterest);
@@ -1088,6 +1078,7 @@ function initializeRows() {
         }
       });
     });
+    $("#update-profile-card").fadeIn("slow");
 
     $(document).on("click", "#update-profile-button", function(event) {
       event.preventDefault();
@@ -1097,7 +1088,8 @@ function initializeRows() {
         image: $("#update-image-link").val(),
         interests: JSON.stringify(updateInterests)
       }
-      $.ajax("dashboard/edit", {
+      console.log(updateUser)
+      $.ajax("/dashboard/edit", {
         type: "POST",
         data: updateUser
       }).then(function(data){

@@ -55,12 +55,13 @@ app.post('/forgot', function(req, res, next) {
             'If you did not request this, please ignore this email and your password will remain unchanged.\n'
         };
         client.sendMail(mailOptions, function(err,info) {
-          req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+          req.flash('info', 'An e-mail has been sent to ' +email+ '   with further instructions.');
           if(err){
             console.log(err)
           }
           else{
             console.log("email sent")
+            res.redirect("/")
           }
         });
       }
@@ -123,17 +124,18 @@ app.post('/forgot', function(req, res, next) {
           'This is a confirmation that the password for your account has just been changed.\n'
         };
         client.sendMail(mailOptions, function(err,info) {
-          req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+          req.flash('info', 'password changed');
           if(err){
             console.log(err)
           }
           else{
             console.log("email sent")
+            res.redirect('/');
           }
         });
       }
     ).then (function(err) {
-      res.redirect('/');
+     
     });
   }
 

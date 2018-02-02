@@ -16,8 +16,16 @@ html, body, #main-page-content-row {
 }
 
 #o {
-    color: #50a39a;
+    color: 	#7289da;
     text-shadow: .05em .05em .1em white;
+}
+
+#nav-mobile {
+    display: none;
+}
+
+#nav {
+    display: block;
 }
 
 #main-page-container {
@@ -97,7 +105,7 @@ html, body, #main-page-content-row {
 }
 
 #loginInfoTitle, #profilePicTitle, #interestsTitle {
-    color: #71E5D9;
+    color: #7C95ED;
 }
 
 
@@ -117,32 +125,43 @@ html, body, #main-page-content-row {
 #forgot-password:hover {
     color: #D9D9D9;
 }
-#blog-container{
-    color: black;
-    border-color: orange;
-    border: darkorange;
-    border-style: solid;
-    height: 250px;
-}
-
-#discord-login {
-    background-color: #7289da;
-    color: white;
-    width: 100%;
-    border-radius: 30px;
-}
-
-#discord-login:hover {
-    background-color: #5F72B5;
-}
 
 #sign-in-button, #create-profile-button, #reset-password-button, #login-button, #update-profile-button {
     width: 100%;
     border-radius: 30px;
+    background-color: #7289da;
 }
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #7289da;
+  }
+  
+  .switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #85A0FF;
+  }
 
 #sign-in-button {
     margin-top: 20px;
+}
+
+#sign-in-button:hover {
+    background-color: #85A0FF;
+}
+
+#create-profile-button:hover {
+    background-color: #85A0FF;
+}
+
+#reset-password-button:hover {
+    background-color: #85A0FF;
+}
+
+#login-button:hover {
+    background-color: #85A0FF;
+}
+
+#update-profile-button:hover {
+    background-color: #85A0FF;
 }
 
 #forgotEmail {
@@ -150,12 +169,16 @@ html, body, #main-page-content-row {
 }
 
 #forgot-email-upper {
-    color: #50a39a;
+    color: 	#7289da
 }
 
 #message-headline {
     font-size: 20px;
     color: red;
+}
+#message-headlinegood {
+    font-size: 20px;
+    color: rgb(15, 240, 53);
 }
 
 /* Profile Page CSS */
@@ -163,11 +186,14 @@ html, body, #main-page-content-row {
 #profile-body {
     bottom: 0;
     top: 185px;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     width: 100%;
     height: 100%;
     margin: 0;
     z-index: -10;
+    background-color: #4600c9;
+background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .profile-page-container {
@@ -188,10 +214,15 @@ html, body, #main-page-content-row {
     right: 0;
     width: 100%;
     height: 95px;
-    background: linear-gradient(rgba(33,33,33,1), rgba(88,88,88,1));
+    /* background: linear-gradient(rgba(33,33,33,1), rgba(88,88,88,1)); */
     margin: 0;
     z-index: 10;
+    background-color: #1e2124;;
+    background-image: url("https://www.transparenttextures.com/patterns/diagonales-decalees.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
 
 #profile-header-background-type {
     font-family: 'Audiowide', cursive;
@@ -211,7 +242,7 @@ html, body, #main-page-content-row {
     height: 185px;
     background-color: lightgray;
     z-index: 12;
-    border: 8px solid #50a39a;
+    border: 8px solid 	#7289da;
     border-radius: 220px;
 }
 
@@ -225,11 +256,22 @@ html, body, #main-page-content-row {
     position: fixed;
     top: 95px;
     margin: 0 !important;
-    background-color: #50a39a;
+    background-color:	#7289DA;
     height: 62px;
     z-index: 10;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+#why{
 
+    color: white;
+}
+.link-button{
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+    background-color:	#7289DA;
+    color: white;
+}
 #profile-logo {
     font-family: 'Audiowide', cursive;
     font-size: 60px;
@@ -241,14 +283,73 @@ html, body, #main-page-content-row {
     margin-left: 40px;
 }
 
-#profile-logo:hover {
-    color: lightgray;
+#add-friend {
+    color: white;
+    background-color: #4F4F4F;
+    margin-top: 4px;
+    float: left; 
+    padding: 0;
+    text-align: center;
+
+    border-radius: 5px;
+    height: 45px;
+    width: 150px;
+    border: 1px solid #4F4F4F;
 }
 
-#username-display {
+#add-friend-mobile {
+    display: none;
+    color: white;
+    background-color: #4F4F4F;
+    margin-top: 4px;
+    float: left; 
+    padding: 0;
+    text-align: center;
+
+    border-radius: 5px;
+    height: 45px;
+    width: 75px;
+    border: 1px solid #4F4F4F;
+}
+
+#friend-add-message {
+    position: fixed;
+    top: 155px;
+    left: 600px;
+    color: green;
+
+}
+
+#friend-error-message {
+    position: fixed;
+    top: 155px;
+    left: 600px;
+    color: red;
+}
+
+#add-friend:hover {
+    background-color: #6E6E6E;
+}
+
+#add-friend-mobile:hover {
+    background-color: #6E6E6E;
+}
+
+#add-friend-icon {
+    margin-right: 10px;
+    margin-bottom: 0;
+
+}
+
+#profile-logo:hover {
+    color: lightgray;
+    background: none;
+}
+
+#username-display, #username-display-dashboard{
     position: absolute;
     left: 360px;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     z-index: 1;
 }
@@ -258,7 +359,11 @@ html, body, #main-page-content-row {
 }
 
 .nav-links:hover {
-    background-color: #3B7871;
+    background-color: #657AC2;
+}
+
+#nav-dashboard-mobile {
+    display: none;
 }
 
 #profile-page-content {
@@ -276,7 +381,7 @@ html, body, #main-page-content-row {
     right: 0;
     left: 0;
     height: 55px;
-    background-color: white;
+    background-color: #1e2124;;
     z-index: 10;
     border-bottom: 1px solid black;
     border-style: none none outset none;
@@ -305,9 +410,9 @@ html, body, #main-page-content-row {
     padding-left: 10px;
 }
 
-#post-button, #post-comment-button {
+#post-button {
     height: 45px;
-    background-color: rgba(88,88,88,1);
+    background-color: #4F4F4F;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 5px;
@@ -319,7 +424,7 @@ html, body, #main-page-content-row {
 }
 
 #logout-button {
-    background-color: rgba(88,88,88,1);
+    background-color: #4F4F4F;
     float: right;
     height: 45px;
     border-top-left-radius: 5px;
@@ -327,6 +432,10 @@ html, body, #main-page-content-row {
     margin-top: 4px;
     padding-top: 5px;
 } 
+
+#logout-button-mobile {
+    display: none;
+}
 
 #logout-button-col {
     padding-right: 0 !important;
@@ -336,25 +445,12 @@ html, body, #main-page-content-row {
     background-color: #6E6E6E;
 }
 
-#post-button:hover {
+#logout-button-mobile:hover {
     background-color: #6E6E6E;
 }
 
-#search-button {
-    height: 45px;
-    background-color: rgba(88,88,88,1);
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-left: 0px;
-    margin-bottom: 2px;
-    width: 13%;
-    color: white;
-}
-
-#search-input {
-    margin-bottom: 20px;
+#post-button:hover {
+    background-color: #6E6E6E;
 }
 
 ::-webkit-input-placeholder {
@@ -381,12 +477,12 @@ html, body, #main-page-content-row {
 }
 
 #postername {
-    color: #50a39a;
+    color: 	#7289da;
     font-size: 18px
 }
 
 #postername:hover, .friendname:hover {
-    color: #40827B;
+    color: #5567A3;
 }
 
 #says {
@@ -396,20 +492,58 @@ html, body, #main-page-content-row {
 
 #reply {
     color: rgba(33, 33, 33, 0.9);
-    color: #50a39a;
+    color: 	#7289da;
+}
+#signin input:focus + label  {
+    color: #9e9e9e;
+}
+
+#signin input[type=text]:focus {
+    border-bottom: 1px solid #7289da !important;
+    box-shadow: 0 1px 0 0 #7289da !important;
+}
+
+#signin input[type=password]:focus {
+    border-bottom: 1px solid #7289da !important;
+    box-shadow: 0 1px 0 0 #7289da !important;
+}
+/* label focus color */
+.input-field input:focus + label {
+    color: #7289da !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #7289da !important;
+    box-shadow: 0 1px 0 0 #7289da !important;
+}
+
+.input-field input[type=email]:focus {
+    border-bottom: 1px solid #7289da !important;
+    box-shadow: 0 1px 0 0 #7289da !important;
+}
+
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #7289da !important;
+    box-shadow: 0 1px 0 0 #7289da !important;
 }
 
 #reply:hover {
-    color: #40827B;
+    color: #5567A3;
 }
 
 #post {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
+    background-color: #1e2124;
+    background-image: url("https://www.transparenttextures.com/patterns/diagonales-decalees.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 #post-body {
     margin-bottom: 10px;
+    color: white;
 }
 
 #friend-img {
@@ -424,7 +558,7 @@ html, body, #main-page-content-row {
 }
 
 .friendname {
-    color: #50a39a;
+    color: 	#7289da;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -432,10 +566,11 @@ html, body, #main-page-content-row {
 
 #friends-title {
     text-align: center;
+    color: white;
 }
 
 #friends-count {
-    color: #50a39a;
+    color: 	#7289da;
 }
 
 #friends-card {
@@ -443,10 +578,14 @@ html, body, #main-page-content-row {
     top: 230px;
     z-index: 10;
     border-radius: 5px;
+    background-color:#1e2124;
+    background-image: url("https://www.transparenttextures.com/patterns/diagonales-decalees.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .highlighted {
-    background-color: #3B7871;
+    background-color: #5567A3;
 }
 
 #updateDisplayName, #updateUserEmail, #update-image-link {
@@ -490,6 +629,7 @@ html, body, #main-page-content-row {
     #displayName, #displayNameLabel, #userEmail, #userEmailLabel, #passwordInput, #userPasswordLabel, #passwordConfirmInput, #userPasswordConfirmLabel, #image-link, #imageLinkLabel {
         font-size: 20px;
     } 
+    
 
     #gamingCategoryTitle, #tvCategoryTitle, #movieCategoryTitle, #sportsCategoryTitle,  {
         font-size: 20px;
@@ -513,20 +653,11 @@ html, body, #main-page-content-row {
         height: 185px;
         background-color: lightgray;
         z-index: 12;
-        border: 8px solid #50a39a;
         border-radius: 220px;
     }
 
     #profile-logo {
         margin-left: 20px;
-    }
-
-    #username-display {
-        position: absolute;
-        left: 280px;
-        font-size: 25px;
-        color: white;
-        z-index: 1;
     }
 
     #discord-widget {
@@ -535,5 +666,222 @@ html, body, #main-page-content-row {
 
     #profile-header-background-type {
         margin-left: 50px;
+    }
+
+    #add-friend {
+        display: none;
+    }
+
+    #add-friend-mobile {
+        display: inline-block;
+    }
+
+    #friend-add-message {
+        position: fixed;
+        top: 155px;
+        left: 400px;
+        color: green;
+    
+    }
+    
+    #friend-error-message {
+        position: fixed;
+        top: 155px;
+        left: 400px;
+        color: red;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    #nav-mobile {
+        display: block;
+    }
+
+    #username-display {
+        left: 300px;
+    }
+    #username-display-dashboard {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+    #login-email-label, #login-password-label, #email, #password, #sign-in-button, #create-profile-button, #reset-password-button, #forgotEmail, #userEmailLabelForgot {
+        font-size: 20px;
+    } 
+
+    #sign-in-button, #create-profile-button, #reset-password-button {
+        height: 50px;
+    }
+
+    #register, #forgot-password {
+        font-size: 20px;
+    }
+    #main-page-title {
+        font-size: 18vw;
+        margin-top: 150px
+    }
+    #login-card {
+        margin-top: 100px;
+    }
+
+    #create-profile-card {
+        margin-top: 100px;
+    }
+
+    #form-title, #forgot-title, #update-form-title {
+        font-size: 30px;
+    }
+
+    #loginInfoTitle, #profilePicTitle, #interestsTitle, #forgot-instructions, #updateInterestsTitle {
+        font-size: 20px;
+    }
+
+    #displayName, #displayNameLabel, #userEmail, #userEmailLabel, #passwordInput, #userPasswordLabel, #passwordConfirmInput, #userPasswordConfirmLabel, #image-link, #imageLinkLabel {
+        font-size: 18px;
+    } 
+    
+
+    #gamingCategoryTitle, #tvCategoryTitle, #movieCategoryTitle, #sportsCategoryTitle,  {
+        font-size: 20px;
+    }
+
+    #gamingLabel, #tvLabel, #movieLabel, #sportsLabel {
+        font-size: 14px;
+    }
+
+    #post-button {
+        width: 13%;
+        padding: 0 !important;
+        margin-bottom: 0;
+    }
+
+    #profile-img-container {
+        position: fixed;
+        top: 25px;
+        left: 90px;
+        width: 185px;
+        height: 185px;
+        background-color: lightgray;
+        z-index: 12;
+        border-radius: 220px;
+    }
+
+    #profile-logo {
+        margin-left: 20px;
+    }
+
+    #discord-widget {
+        width: 48%;
+        top: 210px;
+        left: 5px;
+    }
+
+    #profile-header-background-type {
+        margin-left: 50px;
+    }
+
+    #add-friend {
+        display: none;
+    }
+
+    #add-friend-mobile {
+        display: inline-block;
+    }
+
+    #friend-add-message {
+        position: fixed;
+        top: 155px;
+        left: 400px;
+        color: green;
+    
+    }
+    
+    #friend-error-message {
+        position: fixed;
+        top: 155px;
+        left: 400px;
+        color: red;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    #nav-mobile {
+        display: block;
+    }
+
+    #username-display {
+        left: 300px;
+    }
+    #username-display-dashboard {
+        display: none;
+    }
+
+    #friends-card {
+        position: fixed;
+        width: 48%;
+        left: 5px;
+        top: 630px;
+        z-index: 11;
+        border-radius: 5px;
+    }
+
+    #feed {
+        margin-left: 50%;
+        margin-top: 193px;
+    }
+
+    #post-input {
+        width: 82%;
+    }
+
+    #nav-mobile {
+        display: block;
+    }
+
+    #nav-dashboard {
+        display: none;
+    }
+
+    #nav-dashboard-mobile {
+        display: block;
+    }
+
+    #username-display {
+        display: none;
+    }
+
+    #logout-button {
+        display: none;
+    }
+
+    #logout-button-mobile {
+        display: block;
+        position: fixed;
+        top: 154px;
+        left: 280px;
+        width: 100px;
+        background-color: #4F4F4F;
+        float: right;
+        height: 45px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-top: 4px;
+        padding-top: 5px;
+    }
+    
+    #add-friend-mobile {
+        position: fixed;
+        left: 5px;
+        top: 155px;
+    }
+
+    #friend-add-message, #friend-error-message {
+        left: 450px;
     }
 }
