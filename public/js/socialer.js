@@ -140,7 +140,7 @@ $(document).ready(function() {
 
 
 
-
+//turning animation function
   var loginCardDegree = 1;
   function loginRotateY() {
     var timeoutId;
@@ -157,7 +157,7 @@ $(document).ready(function() {
       return;
     }
   }
-  
+ //turning animation function part 2 
   var profileCardDegree = 89;
   function createProfileRotateY() {
     var timeoutId;
@@ -174,10 +174,16 @@ $(document).ready(function() {
       return;
     }
   }
+  //removes message flashes in 3 seconds on page load
+  var friendTimeoutId = setTimeout(function() {
+    $("#friend-error-message").fadeOut("slow");
+    $("#friend-add-message").fadeOut("slow");
+  }, 3000);
 
   var interests = [];
   var updateInterests = [];
 
+  //initiates rotation and generates create profile form
   $("#register").on("click", function() {
     loginRotateY();
     $("#main-page-title").fadeOut("slow");
@@ -455,43 +461,8 @@ $(document).ready(function() {
     var timeoutId = setTimeout(function(){
       createProfileCard.fadeIn("slow");
     }, 575);
-/*
-    $("#register-form").validate({
-      rules: {
-        displayName: {
-          required: true,
-          minlength: 2
-        },
-        userEmail: {
-          required: true,
-          email: true
-        },
-        password: {
-          required: true,
-          minlength: 6
-        },
-        confirmPassword: {
-          required: true,
-          minlength: 6,
-          equalTo: "#password"
-        },
-        imageLink: {
-          url: true
-        },
-        errorElement : "div",
-        errorPlacement : function(error, element) {
-          var placement = $(element).data('error');
-          alert(placement);
-          if (placement) {
-            $(placement).append(error)
-          } else {
-            error.insertAfter(element);
-          }
-        }
-      }
-    });
-    */
 
+    //pushes user selection from switches to array to store in database
     $(function() {
       $(".categoryCheckbox").click(function() {
         var isGamingChecked = $("#gamingCheckbox").prop("checked");
@@ -581,6 +552,7 @@ $(document).ready(function() {
 
   var forgotEmailInput;
 
+//forgot password logic
   $("#forgot-password").on("click", function() {
     console.log("button working");
     $("#sign-in-row").hide();
@@ -688,10 +660,7 @@ $(document).ready(function() {
     $("#card-content").append(resetMessageRow);
   });
 
-  $(document).on("click", "#login-button", function() {
-    console.log("redirecting");
-  })
-
+  //creates new profile by sending info to database
   $(document).on("click", "#create-profile-button", function(event){
     event.preventDefault();
 
@@ -713,18 +682,7 @@ $(document).ready(function() {
       location.reload();
     });
   })
-
-
-
-
-  /*$(".chat-nav-links li").on("click", function() {
-    $(".highlighted").removeClass("highlighted");
-    $(this).addClass("highlighted");
-  })
-
-  var chatSelected = $("#linky").val();
-  console.log("chat: " + chatSelected);*/
-
+  //hides divs
   $("#main-chat-link").on("click", function() {
     $("#feed-row").show();
     $("#discord-widget").show();
@@ -763,7 +721,7 @@ $(document).ready(function() {
     $("#search-bar-div-profile").show();
     $("#update-profile-card").hide();
   })
-
+  //generates update profile form when user clicks Edit Profile button on dashboard
   $("#edit-profile-link").on("click", function() {
     $(".highlighted").removeClass("highlighted");
     $(this).addClass("highlighted");
@@ -789,8 +747,6 @@ $(document).ready(function() {
     updateForm.addClass("col s12");
     updateForm.attr("id", "update-form");
     updateForm.attr("name", "update-form");
-    //updateForm.attr("method", "post");
-    //updateForm.attr("action", "/dashboard/edit");
 
     var updateFormTitle = $("<h5>");
     updateFormTitle.attr("id", "update-form-title");
@@ -801,7 +757,7 @@ $(document).ready(function() {
     var updateRowOne = $('<div class="row">');
 
     var updateInputFieldOne = $("<div>");
-    updateInputFieldOne.addClass("input-field col s12 m6");
+    updateInputFieldOne.addClass("input-field col s12");
 
     var updateDisplayNameInput = $("<input>");
     updateDisplayNameInput.addClass("validate");
@@ -815,22 +771,10 @@ $(document).ready(function() {
     updateDisplayNameLabel.text("Display Name");
 
     var updateInputFieldTwo = $("<div>");
-    updateInputFieldTwo.addClass("input-field col s12 m6");
-
-    // var updateUserEmailInput = $("<input>");
-    // updateUserEmailInput.addClass("validate");
-    // updateUserEmailInput.attr("id", "updateUserEmail");
-    // updateUserEmailInput.attr("name", "updateUserEmail");
-    // updateUserEmailInput.attr("type", "email");
-
-    // var updateUserEmailLabel = $("<label>");
-    // updateUserEmailLabel.attr("for", "updateUserEmail");
-    // updateUserEmailLabel.attr("id", "updateUserEmailLabel");
-    // updateUserEmailLabel.text("Email");
+    updateInputFieldTwo.addClass("input-field col s12");
 
     updateInputFieldOne.append(updateDisplayNameInput, updateDisplayNameLabel);
-    // updateInputFieldTwo.append(updateUserEmailInput, updateUserEmailLabel);
-    updateRowOne.append(updateInputFieldOne, updateInputFieldTwo);
+    updateRowOne.append(updateInputFieldOne);
 
     var updateRowTwo = $('<div class="row">');
 
@@ -1079,7 +1023,8 @@ $(document).ready(function() {
       });
     });
     $("#update-profile-card").fadeIn("slow");
-
+    
+//sends updated profile information to database
     $(document).on("click", "#update-profile-button", function(event) {
       event.preventDefault();
       var updateUser = {

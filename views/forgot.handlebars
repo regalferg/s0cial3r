@@ -15,11 +15,11 @@
 
                         <div class="row" id="sign-in-row">
 
-    <form id="forgot" name="forgot" method="post" action="forgot">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <input class="btn" type="submit" value="Send Reset" />
-    </form>
+                            <form id="forgot-form" name="forgot" method="post" action="forgot">
+                                <label for="email" id="userEmailLabelForgot">Email Address</label>
+                                <input class="text" name="email" type="text" id="forgotEmail" />
+                                <input class="btn" type="submit" value="Send Reset" id="reset-password-button"/>
+                            </form>
                        
 
                             <h1 id="message-headline"> {{messages.error}}</h1>

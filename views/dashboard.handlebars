@@ -14,7 +14,7 @@
 
 
         <nav class="row" id="profile-nav">
-                <a href="/dashboard" id="profile-logo">0</a>
+                <a href="/dashboard" id="profile-logo">{{id}}</a>
             <span id="username-display-dashboard">{{displayName}}</span>
             <ul id="nav-dashboard" class="right hide-on-small-only chat-nav-links">
                  <li><a href="/profilelist" class="" id="main-chat-link">PROFILE LIST</a></li>
@@ -37,11 +37,11 @@
         <div class="row" id="search-bar-div-profile">
             <div class="input-field col m6 offset-m6 l6 offset-l3" id="post-bar-col">
                 <input placeholder="Say Something" name="post" type="text" id="post-input"/>
-                <input class="btn" type="submit" value="POST" id="post-button"/>
+                <input class="btn link-button" type="submit" value="POST" id="post-button"/>
             </div>
             <div class="col m3" id="logout-button-col">
-                <a href="/logout" class="waves-effect waves-light btn" id="logout-button"><i class="material-icons left">cloud_off</i>Logout</a>
-                <a href="/logout" class="waves-effect waves-light btn" id="logout-button-mobile">Logout</a>
+                <a href="/logout" class="waves-effect waves-light btn link-button" id="logout-button"><i class="material-icons left">cloud_off</i>Logout</a>
+                <a href="/logout" class="waves-effect waves-light btn link-button" id="logout-button-mobile">Logout</a>
             </div>
         </div>
         <div class="row" id="feed-row">;
