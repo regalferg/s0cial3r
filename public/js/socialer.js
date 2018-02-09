@@ -116,7 +116,7 @@ $(document).ready(function() {
   //This is functional, posts to db and discord
   $("#post-button").click(function (event) {
     if ($("#post-input").val() === "") {
-      $("#post-input").val('Please Enter a Value');
+      $("#post-input").val('');
     }else{
       feedSubmit();
     $("#post-input").val('');
