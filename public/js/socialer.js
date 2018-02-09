@@ -115,9 +115,13 @@ $(document).ready(function() {
 
   //This is functional, posts to db and discord
   $("#post-button").click(function (event) {
-    // event.preventDefault();
-    feedSubmit();
+    if ($("#post-input").val() === "") {
+      $("#post-input").val('Please Enter a Value');
+    }else{
+      feedSubmit();
     $("#post-input").val('');
+    }
+    
   });
 
 
